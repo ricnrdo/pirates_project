@@ -6,17 +6,6 @@ from game.events import *
 import game.items as items
 import random
 
-"""
-Los eventos son randoms.
-Lo que puedo hacer para terminar el juego es un while loop.
-
-Puedo crear un pirata tipo esqueleto que resguarde el tesoro. Cuando
-el pirata llegue al lugar, tendra la oportunidad de pelear con el huesudo o
-irse. La medicina que el pirata encuentre en la casa de arbol podra usarla para
-recuperar vida, pero el huesudo le quitara vida aleatoreamente asi el pirata no
-podra ganar a la primera.
-"""
-
 class Island(location.Location):
     def __init__ (self, x, y, w):
         super().__init__(x, y, w)
@@ -334,10 +323,11 @@ class Treasure(location.SubLocation):
 
     def GetUniqueRiddleAndAnswer(self, questions_asked):
         riddleList = [
-            ("What is black and white and red all over?", "newspaper"),
-            ("What do you call a cow with no legs?", "ground beef"),
-            ("What has many rings but no finger?", "phone"),
-            ("What goes up but never goes down?", "age")
+            ("What has keys but can't open locks?", "piano"),
+            ("I speak without a mouth and hear without ears. I have no body, but I come alive with the wind. What am I?", "echo"),
+            ("The more you take, the more you leave behind. What am I?", "footsteps"),
+            ("I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?", "map"),
+            ("I'm tall when I'm young and short when I'm old. What am I?", "candle")
         ]
         available_questions = [riddle for riddle in riddleList if riddle[0] not in questions_asked]
         if not available_questions:
